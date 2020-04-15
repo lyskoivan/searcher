@@ -1,3 +1,5 @@
 import { combineReducers } from 'redux';
 
-export default combineReducers({ searcher: { type: 2 } });
+import searcherReducer from './searcher/searcherReducer';
+
+export default combineReducers({ searcher: searcherReducer });
