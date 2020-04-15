@@ -13,9 +13,7 @@ export const getRepositoriesSuccess = (
   payload: { repositories },
 });
 
-export const getRepositoriesError = (
-  error: types.Error,
-): types.GetRepositoriesTypes => ({
+export const getRepositoriesError = (error: types.Error): types.GetRepositoriesTypes => ({
   type: types.GET_REPOSITORIES_ERROR,
   payload: { error },
 });
@@ -42,16 +40,12 @@ export const setSearchQueryStart = (): types.SetSearchQueryTypes => ({
   type: types.SET_SEARCH_QUERY_START,
 });
 
-export const setSearchQuerySuccess = (
-  query: string,
-): types.SetSearchQueryTypes => ({
+export const setSearchQuerySuccess = (query: string): types.SetSearchQueryTypes => ({
   type: types.SET_SEARCH_QUERY_SUCCESS,
   payload: { query },
 });
 
-export const setSearchQueryError = (
-  error: types.Error,
-): types.SetSearchQueryTypes => ({
+export const setSearchQueryError = (error: types.Error): types.SetSearchQueryTypes => ({
   type: types.SET_SEARCH_QUERY_ERROR,
   payload: { error },
 });

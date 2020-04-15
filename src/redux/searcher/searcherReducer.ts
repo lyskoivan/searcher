@@ -2,10 +2,7 @@ import { combineReducers } from 'redux';
 
 import * as types from './searcherTypes';
 
-const repositoriesReducer = (
-  state = [],
-  action: types.GetRepositoriesTypes,
-): Array<types.Repository> => {
+const repositoriesReducer = (state = [], action: types.GetRepositoriesTypes): Array<types.Repository> => {
   switch (action.type) {
     case types.GET_REPOSITORIES_SUCCESS:
       return action.payload.repositories;
@@ -25,10 +22,7 @@ const pageReducer = (state = 1, action: types.SetPageTypes): number => {
   }
 };
 
-const SearchQueryReducer = (
-  state = '',
-  action: types.SetSearchQueryTypes,
-): string => {
+const SearchQueryReducer = (state = '', action: types.SetSearchQueryTypes): string => {
   switch (action.type) {
     case types.SET_SEARCH_QUERY_SUCCESS:
       return action.payload.query;
@@ -38,15 +32,9 @@ const SearchQueryReducer = (
   }
 };
 
-type SearcherReducerTypes =
-  | types.SetSearchQueryTypes
-  | types.SetPageTypes
-  | types.GetRepositoriesTypes;
+type SearcherReducerTypes = types.SetSearchQueryTypes | types.SetPageTypes | types.GetRepositoriesTypes;
 
-const errorReducer = (
-  state = null,
-  action: SearcherReducerTypes,
-): types.Error | null => {
+const errorReducer = (state = null, action: SearcherReducerTypes): types.Error | null => {
   switch (action.type) {
     case types.GET_REPOSITORIES_START:
     case types.SET_PAGE_START:

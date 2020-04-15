@@ -23,6 +23,17 @@ export interface Error {
   config: object | null;
 }
 
+export interface SearcherState {
+  repositories: Array<Repository>;
+  page: number;
+  searchQuery: string;
+  error: Error | null;
+}
+
+export interface MainState {
+  searcher: SearcherState;
+}
+
 // Get repositories
 
 interface GetRepositoriesStartAction {
