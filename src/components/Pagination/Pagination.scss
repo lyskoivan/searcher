@@ -1,0 +1,57 @@
+@import '../../styles/helpers/variables.scss';
+
+.pagination {
+  margin: 0 auto;
+
+  &-list {
+    list-style-type: none;
+    justify-content: center;
+    display: flex;
+
+    &-link {
+      outline: none;
+    }
+
+    &-item {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid $blue-color;
+      border-radius: 2px;
+      color: $blue-color;
+      outline: none;
+      cursor: pointer;
+      border-right: none;
+
+      &:last-child {
+        border-right: 1px solid $blue-color;
+        margin-left: 2px;
+      }
+
+      &:first-child {
+        margin-right: 2px;
+        border-right: 1px solid $blue-color;
+      }
+
+      &_disabled {
+        border: 1px solid $gray-color;
+        color: $gray-color;
+      }
+
+      &_active {
+        background-color: $blue-color;
+        color: $white-color;
+      }
+    }
+  }
+}
+
+@media (max-width: 580px) {
+  .pagination-list {
+    max-width: 250px;
+    margin: 0 auto;
+
+    &-item {
+      padding: 8px;
+    }
+  }
+}

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
+import './App.scss';
+
 import SearchBar from '../SearchBar';
 import RepositoriesList from '../RepositoriesList';
 import Pagination from '../Pagination';
@@ -37,7 +39,6 @@ class App extends Component<AppProps, {}> {
     const { page, searchQuery, getRepositories } = this.props;
 
     if (prevProps.page !== page || prevProps.searchQuery !== searchQuery) {
-      console.log('Props', prevProps);
       getRepositories(page, searchQuery);
     }
   }
@@ -45,8 +46,8 @@ class App extends Component<AppProps, {}> {
   render(): JSX.Element {
     const { repositories } = this.props;
     return (
-      <div>
-        <header>
+      <div className="main-wrapper">
+        <header className="main-header">
           <SearchBar />
           {repositories.length > 0 && <RepositoriesList />}
           {repositories.length > 0 && <Pagination />}

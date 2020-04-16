@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import './RepositoriesList.scss';
+
 import RepositoriesListItem from '../RepositoriesListItem';
 
 import { MainState, Repository } from '../../redux/searcher/searcherTypes';
@@ -21,8 +23,8 @@ type RepositoriesListProps = ReturnType<typeof mapStateToProps> & typeof mapDisp
 const RepositoriesList: React.FC<RepositoriesListProps> = ({
   repositories = [],
 }: RepositoriesListStateProps): JSX.Element => (
-  <section>
-    <ul>
+  <section className="repositories">
+    <ul className="repositories-list">
       {repositories.map((repo: Repository) => (
         <RepositoriesListItem key={repo.id} repository={repo} />
       ))}

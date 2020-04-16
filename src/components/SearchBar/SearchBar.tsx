@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import './SearchBar.scss';
+
 import { setSearchQuery } from '../../redux/searcher/searcherAcrions';
 
 interface SearchProps {
@@ -41,20 +43,21 @@ class SearchBar extends Component<SearchBarProps, SearchBarState> {
     const { query } = this.state;
 
     return (
-      <div>
-        <form onSubmit={this.handleSubmitSearchForm}>
+      <section className="Searchbar">
+        <form onSubmit={this.handleSubmitSearchForm} className="SearchForm">
           <input
             onChange={this.handleChangeQuery}
+            className="SearchForm-input"
             value={query}
             type="text"
             placeholder="Search repositories..."
             autoComplete="off"
           />
-          <button type="submit">
-            <span>Search</span>
+          <button type="submit" className="SearchForm-button">
+            <span className="SearchForm-button-label">Search</span>
           </button>
         </form>
-      </div>
+      </section>
     );
   }
 }

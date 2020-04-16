@@ -1,6 +1,7 @@
 import ReactPaginate from 'react-paginate';
 import React from 'react';
 import { connect } from 'react-redux';
+import './Pagination.scss';
 
 import { setPageSuccess } from '../../redux/searcher/searcherAcrions';
 import { MainState } from '../../redux/searcher/searcherTypes';
@@ -42,12 +43,22 @@ const Pagination: React.FC<PaginationTypeProps> = ({
   };
 
   return (
-    <section>
+    <section className="pagination">
       <ReactPaginate
         pageCount={totalPages}
         marginPagesDisplayed={2}
         pageRangeDisplayed={5}
         onPageChange={handlePageClick}
+        containerClassName="pagination-list"
+        pageClassName="pagination-list-item"
+        previousClassName="pagination-list-item"
+        nextClassName="pagination-list-item"
+        breakClassName="pagination-list-item"
+        disabledClassName="pagination-list-item_disabled"
+        activeClassName="pagination-list-item_active"
+        pageLinkClassName="pagination-list-link"
+        previousLinkClassName="pagination-list-link"
+        nextLinkClassName="pagination-list-link"
       />
     </section>
   );

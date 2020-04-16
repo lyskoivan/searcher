@@ -1,0 +1,67 @@
+@import '../../styles/helpers/variables.scss';
+
+.star-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.repository {
+  width: 85%;
+  padding: 20px;
+  border-radius: 2px;
+  margin-bottom: 12px;
+  -webkit-box-shadow: 13px 11px 14px -10px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 13px 11px 14px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 13px 11px 14px -10px rgba(0, 0, 0, 0.75);
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 18px;
+
+    &-link {
+      position: relative;
+      text-decoration: none;
+      color: $blue-color;
+      transition: all ease-in-out 0.3s;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0px;
+        height: 2px;
+        bottom: -2px;
+        width: 0%;
+        background-color: $blue-color;
+        transition: width 0.2s linear;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+
+  &-star {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background-image: url('https://image.flaticon.com/icons/svg/2107/2107957.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &-counter {
+      margin: 0;
+      padding-left: 8px;
+    }
+  }
+
+  &-description {
+    text-align: justify;
+    line-height: 1.4;
+    font-size: 16px;
+  }
+}
