@@ -39,7 +39,6 @@ class App extends Component<AppProps, {}> {
     const { page, searchQuery, getRepositories } = this.props;
 
     if (prevProps.page !== page || prevProps.searchQuery !== searchQuery) {
-      console.log('Props', prevProps);
       getRepositories(page, searchQuery);
     }
   }
