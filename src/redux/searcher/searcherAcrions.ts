@@ -20,32 +20,14 @@ export const getRepositoriesError = (error: types.Error): types.GetRepositoriesT
 
 // Set Page
 
-export const setPageStart = (): types.SetPageTypes => ({
-  type: types.SET_PAGE_START,
-});
-
 export const setPageSuccess = (page: number): types.SetPageTypes => ({
-  type: types.SET_PAGE_SUCCESS,
+  type: types.SET_PAGE,
   payload: { page },
-});
-
-export const setPageError = (error: types.Error): types.SetPageTypes => ({
-  type: types.SET_PAGE_ERROR,
-  payload: { error },
 });
 
 // Set Search Query
 
-export const setSearchQueryStart = (): types.SetSearchQueryTypes => ({
-  type: types.SET_SEARCH_QUERY_START,
-});
-
-export const setSearchQuerySuccess = (query: string): types.SetSearchQueryTypes => ({
-  type: types.SET_SEARCH_QUERY_SUCCESS,
+export const setSearchQuery = (query: string): types.SetSearchQueryTypes => ({
+  type: types.SET_SEARCH_QUERY,
   payload: { query },
-});
-
-export const setSearchQueryError = (error: types.Error): types.SetSearchQueryTypes => ({
-  type: types.SET_SEARCH_QUERY_ERROR,
-  payload: { error },
 });

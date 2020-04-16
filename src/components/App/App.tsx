@@ -1,8 +1,12 @@
 import React from 'react';
 
+import SearchBar from '../SearchBar';
+
 const App = (): JSX.Element => (
   <div>
-    <h1>Start</h1>
+    <header>
+      <SearchBar />
+    </header>
   </div>
 );
 

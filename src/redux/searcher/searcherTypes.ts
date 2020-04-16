@@ -2,13 +2,9 @@ export const GET_REPOSITORIES_START = 'GET_REPOSITORIES_START';
 export const GET_REPOSITORIES_SUCCESS = 'GET_REPOSITORIES_SUCCESS';
 export const GET_REPOSITORIES_ERROR = 'GET_REPOSITORIES_ERROR';
 
-export const SET_PAGE_START = 'SET_PAGE_START';
-export const SET_PAGE_SUCCESS = 'SET_PAGE_SUCCESS';
-export const SET_PAGE_ERROR = 'SET_PAGE_ERROR';
+export const SET_PAGE = 'SET_PAGE';
 
-export const SET_SEARCH_QUERY_START = 'SET_SEARCH_QUERY_START';
-export const SET_SEARCH_QUERY_SUCCESS = 'SET_SEARCH_QUERY_SUCCESS';
-export const SET_SEARCH_QUERY_ERROR = 'SET_SEARCH_QUERY_ERROR';
+export const SET_SEARCH_QUERY = 'SET_SEARCH_QUERY';
 
 export interface Repository {
   id: number;
@@ -57,42 +53,18 @@ export type GetRepositoriesTypes =
 
 // Set page
 
-interface SetPageStartAction {
-  type: typeof SET_PAGE_START;
-}
-
-interface SetPageSuccessAction {
-  type: typeof SET_PAGE_SUCCESS;
+interface SetPageAction {
+  type: typeof SET_PAGE;
   payload: { page: number };
 }
 
-interface SetPageErrorAction {
-  type: typeof SET_PAGE_ERROR;
-  payload: { error: Error };
-}
-
-export type SetPageTypes =
-  | SetPageStartAction
-  | SetPageSuccessAction
-  | SetPageErrorAction;
+export type SetPageTypes = SetPageAction;
 
 // Set Search Query
 
-interface SetSearchQueryStartAction {
-  type: typeof SET_SEARCH_QUERY_START;
-}
-
-interface SetSearchQueryeSuccessAction {
-  type: typeof SET_SEARCH_QUERY_SUCCESS;
+interface SetSearchQueryeAction {
+  type: typeof SET_SEARCH_QUERY;
   payload: { query: string };
 }
 
-interface SetSearchQueryErrorAction {
-  type: typeof SET_SEARCH_QUERY_ERROR;
-  payload: { error: Error };
-}
-
-export type SetSearchQueryTypes =
-  | SetSearchQueryStartAction
-  | SetSearchQueryeSuccessAction
-  | SetSearchQueryErrorAction;
+export type SetSearchQueryTypes = SetSearchQueryeAction;

@@ -14,7 +14,7 @@ const repositoriesReducer = (state = [], action: types.GetRepositoriesTypes): Ar
 
 const pageReducer = (state = 1, action: types.SetPageTypes): number => {
   switch (action.type) {
-    case types.SET_PAGE_SUCCESS:
+    case types.SET_PAGE:
       return action.payload.page;
 
     default:
@@ -24,7 +24,7 @@ const pageReducer = (state = 1, action: types.SetPageTypes): number => {
 
 const SearchQueryReducer = (state = '', action: types.SetSearchQueryTypes): string => {
   switch (action.type) {
-    case types.SET_SEARCH_QUERY_SUCCESS:
+    case types.SET_SEARCH_QUERY:
       return action.payload.query;
 
     default:
@@ -32,18 +32,12 @@ const SearchQueryReducer = (state = '', action: types.SetSearchQueryTypes): stri
   }
 };
 
-type SearcherReducerTypes = types.SetSearchQueryTypes | types.SetPageTypes | types.GetRepositoriesTypes;
-
-const errorReducer = (state = null, action: SearcherReducerTypes): types.Error | null => {
+const errorReducer = (state = null, action: types.GetRepositoriesTypes): types.Error | null => {
   switch (action.type) {
     case types.GET_REPOSITORIES_START:
-    case types.SET_PAGE_START:
-    case types.SET_SEARCH_QUERY_START:
       return null;
 
-    case types.SET_PAGE_ERROR:
     case types.GET_REPOSITORIES_ERROR:
-    case types.SET_SEARCH_QUERY_ERROR:
       return action.payload.error;
 
     default:
