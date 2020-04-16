@@ -17,8 +17,17 @@ module.exports = {
     jest: true,
   },
   rules: {
+    'object-curly-newline': 0,
     'implicit-arrow-linebreak': 0,
-    'max-len': ['error', { code: 110, tabWidth: 4, ignoreTrailingComments: true, ignoreComments: true }],
+    'max-len': [
+      'error',
+      {
+        code: 110,
+        tabWidth: 4,
+        ignoreTrailingComments: true,
+        ignoreComments: true,
+      },
+    ],
     'react/state-in-constructor': [1, 'never'],
     'import/extensions': [
       'error',
@@ -30,8 +39,14 @@ module.exports = {
         tsx: 'never',
       },
     ],
-    'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
-    'import/no-extraneous-dependencies': [2, { devDependencies: ['**/test.tsx', '**/test.ts'] }],
+    'react/jsx-filename-extension': [
+      2,
+      { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
+    ],
+    'import/no-extraneous-dependencies': [
+      2,
+      { devDependencies: ['**/test.tsx', '**/test.ts'] },
+    ],
     '@typescript-eslint/indent': [2, 2],
   },
   globals: {

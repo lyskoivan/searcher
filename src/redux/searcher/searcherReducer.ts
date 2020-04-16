@@ -22,6 +22,16 @@ const pageReducer = (state = 1, action: types.SetPageTypes): number => {
   }
 };
 
+const totalPagesReducer = (state = 0, action: types.TotalPagesTypes): number => {
+  switch (action.type) {
+    case types.TOTAL_PAGES:
+      return action.payload.pages;
+
+    default:
+      return state;
+  }
+};
+
 const SearchQueryReducer = (state = '', action: types.SetSearchQueryTypes): string => {
   switch (action.type) {
     case types.SET_SEARCH_QUERY:
@@ -48,6 +58,7 @@ const errorReducer = (state = null, action: types.GetRepositoriesTypes): types.E
 export default combineReducers({
   repositories: repositoriesReducer,
   page: pageReducer,
+  totalPages: totalPagesReducer,
   searchQuery: SearchQueryReducer,
   error: errorReducer,
 });

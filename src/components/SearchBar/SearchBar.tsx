@@ -3,7 +3,11 @@ import { connect } from 'react-redux';
 
 import { setSearchQuery } from '../../redux/searcher/searcherAcrions';
 
-const mapDispatchToProps = (dispatch: any): any => ({
+interface SearchProps {
+  onSearch: Function;
+}
+
+const mapDispatchToProps = (dispatch: any): SearchProps => ({
   onSearch: (query: string): string => dispatch(setSearchQuery(query)),
 });
 
@@ -18,11 +22,11 @@ class SearchBar extends Component<SearchBarProps, SearchBarState> {
     query: '',
   };
 
-  handleChangeQuery = (e: any): any => {
+  handleChangeQuery = (e: any): void => {
     this.setState({ query: e.target.value });
   };
 
-  handleSubmitSearchForm = (e: any): any => {
+  handleSubmitSearchForm = (e: any): void => {
     e.preventDefault();
     const { query } = this.state;
     if (!query) {

@@ -25,6 +25,13 @@ export const setPageSuccess = (page: number): types.SetPageTypes => ({
   payload: { page },
 });
 
+// Set Total Page
+
+export const setTotalPages = (pages: number): types.TotalPagesTypes => ({
+  type: types.TOTAL_PAGES,
+  payload: { pages },
+});
+
 // Set Search Query
 
 export const setSearchQuery = (query: string): types.SetSearchQueryTypes => ({

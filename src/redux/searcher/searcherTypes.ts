@@ -4,12 +4,16 @@ export const GET_REPOSITORIES_ERROR = 'GET_REPOSITORIES_ERROR';
 
 export const SET_PAGE = 'SET_PAGE';
 
+export const TOTAL_PAGES = 'TOTAL_PAGES';
+
 export const SET_SEARCH_QUERY = 'SET_SEARCH_QUERY';
 
 export interface Repository {
   id: number;
-  title: string;
-  body: string;
+  stargazers_count: number;
+  html_url: string;
+  name: string;
+  description: string;
 }
 
 export interface Error {
@@ -22,6 +26,7 @@ export interface Error {
 export interface SearcherState {
   repositories: Array<Repository>;
   page: number;
+  totalPages: number;
   searchQuery: string;
   error: Error | null;
 }
@@ -68,3 +73,12 @@ interface SetSearchQueryeAction {
 }
 
 export type SetSearchQueryTypes = SetSearchQueryeAction;
+
+// Set total page
+
+interface TotalPagesAction {
+  type: typeof TOTAL_PAGES;
+  payload: { pages: number };
+}
+
+export type TotalPagesTypes = TotalPagesAction;
