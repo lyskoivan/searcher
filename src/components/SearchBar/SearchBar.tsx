@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, SyntheticEvent, MouseEvent, ChangeEvent } from 'react';
 import { connect } from 'react-redux';
 
-import './SearchBar.scss';
-
+import { cancel } from '../../services/githubAPI';
 import { setSearchQuery } from '../../redux/searcher/searcherAcrions';
+
+import './SearchBar.scss';
 
 interface SearchProps {
   onSearch: Function;
@@ -24,18 +25,31 @@ class SearchBar extends Component<SearchBarProps, SearchBarState> {
     query: '',
   };
 
-  handleChangeQuery = (e: any): void => {
+  handleChangeQuery = (e: ChangeEvent<HTMLInputElement>): void => {
     this.setState({ query: e.target.value });
   };
 
-  handleSubmitSearchForm = (e: any): void => {
+  handleCancelRequest = (e: MouseEvent<HTMLButtonElement>): void => {
     e.preventDefault();
+
+    cancel('Operation canceled by the user.');
+
+    this.setState({ query: '' });
+  };
+
+  handleSubmitSearchForm = (e: SyntheticEvent): void => {
+    e.preventDefault();
+
     const { query } = this.state;
+
     if (!query) {
-      console.log('Type some query');
+      alert('Type some query');
+
       return;
     }
+
     const { onSearch } = this.props;
+
     onSearch(query.toLowerCase());
   };
 
@@ -57,6 +71,9 @@ class SearchBar extends Component<SearchBarProps, SearchBarState> {
             <span className="SearchForm-button-label">Search</span>
           </button>
         </form>
+        <button type="button" className="Searchbar-cancel" onClick={this.handleCancelRequest}>
+          <span className="Searchbar-cancel-label">Cancel</span>
+        </button>
       </section>
     );
   }
