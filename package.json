@@ -10,15 +10,19 @@
     "@types/node": "^12.12.35",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.6",
+    "@types/react-paginate": "^6.2.1",
     "@types/react-redux": "^7.1.7",
     "axios": "^0.19.2",
     "gh-pages": "^2.1.1",
     "normalize.css": "^8.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-paginate": "^6.3.2",
     "react-redux": "^7.2.0",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
     "typescript": "^3.7.5"
   },
   "scripts": {
@@ -30,7 +34,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://github.com/lyskoivan/searcher",
+  "homepage": "https://lyskoivan.github.io/searcher",
   "eslintConfig": {
     "extends": "react-app"
   },

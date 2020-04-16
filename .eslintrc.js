@@ -17,6 +17,17 @@ module.exports = {
     jest: true,
   },
   rules: {
+    'object-curly-newline': 0,
+    'implicit-arrow-linebreak': 0,
+    'max-len': [
+      'error',
+      {
+        code: 110,
+        tabWidth: 4,
+        ignoreTrailingComments: true,
+        ignoreComments: true,
+      },
+    ],
     'react/state-in-constructor': [1, 'never'],
     'import/extensions': [
       'error',
