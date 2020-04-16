@@ -1,0 +1,14 @@
+.repositories {
+  width: 100%;
+}
+
+.repositories-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}

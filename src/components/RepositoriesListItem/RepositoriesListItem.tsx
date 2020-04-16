@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './RepositoriesListItem.scss';
+
 import { Repository } from '../../redux/searcher/searcherTypes';
 
 interface RepositoriesListStateProps {
@@ -7,10 +9,18 @@ interface RepositoriesListStateProps {
 }
 
 const RepositoriesListItem = ({ repository }: RepositoriesListStateProps): JSX.Element => (
-  <li>
-    <a href={repository.html_url}>{repository.name}</a>
-    <p>{repository.description}</p>
-    <p>{repository.stargazers_count}</p>
+  <li className="repository">
+    <article className="repository-header">
+      <a href={repository.html_url} className="repository-header-link">
+        {repository.name}
+      </a>
+      <div className="star-wrapper">
+        <span className="repository-star" />
+        <p className="repository-star-counter">{repository.stargazers_count}</p>
+      </div>
+    </article>
+
+    <p className="repository-description">{repository.description}</p>
   </li>
 );
 
