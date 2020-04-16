@@ -1,11 +1,13 @@
-import ReactPaginate from 'react-paginate';
 import React from 'react';
 import { connect } from 'react-redux';
-import './Pagination.scss';
+import ReactPaginate from 'react-paginate';
 
+import { Dispatch } from '../../redux/store';
+import { MainState, SetPageTypes } from '../../redux/searcher/searcherTypes';
 import { setPageSuccess } from '../../redux/searcher/searcherAcrions';
-import { MainState } from '../../redux/searcher/searcherTypes';
 import { getPage, getTotalPages } from '../../redux/searcher/searcherSelectors';
+
+import './Pagination.scss';
 
 interface PaginationStateProps {
   page: number;
@@ -22,13 +24,17 @@ interface PaginationProps {
   setPage: Function;
 }
 
+interface ClickData {
+  selected: number;
+}
+
 const mapStateToProps = (store: MainState): PaginationStateProps => ({
   page: getPage(store),
   totalPages: getTotalPages(store),
 });
 
-const mapDispatchToProps = (dispatch: any): PaginationDispatchProps => ({
-  setPage: (page: number): number => dispatch(setPageSuccess(page)),
+const mapDispatchToProps = (dispatch: Dispatch): PaginationDispatchProps => ({
+  setPage: (page: number): SetPageTypes => dispatch(setPageSuccess(page)),
 });
 
 type PaginationTypeProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
@@ -38,7 +44,7 @@ const Pagination: React.FC<PaginationTypeProps> = ({
   totalPages,
   setPage,
 }: PaginationProps): JSX.Element => {
-  const handlePageClick = (data: any | {}): void => {
+  const handlePageClick = (data: ClickData): void => {
     setPage(data.selected + 1);
   };
 

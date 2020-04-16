@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import './RepositoriesList.scss';
-
 import RepositoriesListItem from '../RepositoriesListItem';
-
-import { MainState, Repository } from '../../redux/searcher/searcherTypes';
 import { getRepositorites } from '../../redux/searcher/searcherSelectors';
+import { MainState, Repository } from '../../redux/searcher/searcherTypes';
+
+import './RepositoriesList.scss';
 
 interface RepositoriesListStateProps {
   repositories: Array<Repository>;
