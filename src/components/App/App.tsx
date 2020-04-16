@@ -4,13 +4,10 @@ import { connect } from 'react-redux';
 
 import SearchBar from '../SearchBar';
 import RepositoriesList from '../RepositoriesList';
+import Pagination from '../Pagination';
 
 import setRepositories from '../../redux/searcher/searcherOperations';
-import {
-  getRepositorites,
-  getPage,
-  getSearchQuery,
-} from '../../redux/searcher/searcherSelectors';
+import { getRepositorites, getPage, getSearchQuery } from '../../redux/searcher/searcherSelectors';
 import { MainState, Repository } from '../../redux/searcher/searcherTypes';
 
 interface AppStateProps {
@@ -52,6 +49,7 @@ class App extends Component<AppProps, {}> {
         <header>
           <SearchBar />
           {repositories.length > 0 && <RepositoriesList />}
+          {repositories.length > 0 && <Pagination />}
         </header>
       </div>
     );
