@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './RepositoriesListItem.scss';
-
 import { Repository } from '../../redux/searcher/searcherTypes';
+
+import './RepositoriesListItem.scss';
 
 interface RepositoriesListStateProps {
   repository: Repository;

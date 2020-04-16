@@ -1,16 +1,14 @@
+import { connect } from 'react-redux';
 import React, { Component } from 'react';
 
-import { connect } from 'react-redux';
+import SearchBar from '../SearchBar';
+import Pagination from '../Pagination';
+import RepositoriesList from '../RepositoriesList';
+import setRepositories from '../../redux/searcher/searcherOperations';
+import { MainState, Repository } from '../../redux/searcher/searcherTypes';
+import { getRepositorites, getPage, getSearchQuery } from '../../redux/searcher/searcherSelectors';
 
 import './App.scss';
-
-import SearchBar from '../SearchBar';
-import RepositoriesList from '../RepositoriesList';
-import Pagination from '../Pagination';
-
-import setRepositories from '../../redux/searcher/searcherOperations';
-import { getRepositorites, getPage, getSearchQuery } from '../../redux/searcher/searcherSelectors';
-import { MainState, Repository } from '../../redux/searcher/searcherTypes';
 
 interface AppStateProps {
   repositories: Array<Repository>;

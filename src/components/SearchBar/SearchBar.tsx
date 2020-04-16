@@ -1,7 +1,9 @@
-import React, { Component, SyntheticEvent, MouseEvent, ChangeEvent } from 'react';
 import { connect } from 'react-redux';
+import React, { Component, SyntheticEvent, MouseEvent, ChangeEvent } from 'react';
 
+import { Dispatch } from '../../redux/store';
 import { cancel } from '../../services/githubAPI';
+import { SetSearchQueryTypes } from '../../redux/searcher/searcherTypes';
 import { setSearchQuery } from '../../redux/searcher/searcherAcrions';
 
 import './SearchBar.scss';
@@ -10,8 +12,8 @@ interface SearchProps {
   onSearch: Function;
 }
 
-const mapDispatchToProps = (dispatch: any): SearchProps => ({
-  onSearch: (query: string): string => dispatch(setSearchQuery(query)),
+const mapDispatchToProps = (dispatch: Dispatch): SearchProps => ({
+  onSearch: (query: string): SetSearchQueryTypes => dispatch(setSearchQuery(query)),
 });
 
 type SearchBarProps = ReturnType<typeof mapDispatchToProps>;

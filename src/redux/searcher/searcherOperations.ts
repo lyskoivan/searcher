@@ -1,7 +1,8 @@
-import { getApiRepositories } from '../../services/githubAPI';
 import * as actions from './searcherAcrions';
+import { getApiRepositories } from '../../services/githubAPI';
 
-import { Repository } from './searcherTypes';
+import { Dispatch } from '../store';
+import { Repository, Error } from './searcherTypes';
 
 interface AxiosDataType {
   items: Repository[];
@@ -15,7 +16,7 @@ interface AxiosType {
   statusText: string;
 }
 
-const getRepositories = (pages: number, query: string) => (dispatch: any): void => {
+const getRepositories = (pages: number, query: string) => (dispatch: Dispatch): void => {
   dispatch(actions.getRepositoriesStart());
 
   getApiRepositories(pages, query)
@@ -23,7 +24,7 @@ const getRepositories = (pages: number, query: string) => (dispatch: any): void 
       dispatch(actions.getRepositoriesSuccess(res.data.items));
       dispatch(actions.setTotalPages(Math.ceil(res.data.total_count / 30)));
     })
-    .catch((err: any) => dispatch(actions.getRepositoriesError(err)));
+    .catch((err: Error) => dispatch(actions.getRepositoriesError(err)));
 };
 
 export default getRepositories;
